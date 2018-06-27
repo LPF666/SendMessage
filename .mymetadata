@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ggfwservice"
+  id="myeclipse.1529551679309"
+  context-root="/ggfwservice"
+  j2ee-spec="5.0"
+  archive="ggfwservice.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

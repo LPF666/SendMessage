@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../config/ehcache.xsd">
+	<diskStore path="java.io.tmpdir/ehcache" />
+	<defaultCache maxElementsInMemory="10000"
+		maxElementsOnDisk="1000000" eternal="false" timeToIdleSeconds="120"
+		timeToLiveSeconds="120" overflowToDisk="true" diskPersistent="false"
+		diskExpiryThreadIntervalSeconds="120" memoryStoreEvictionPolicy="LRU" />
+	<!-- 定义了一个session的内存方式，如果有其他的，可根据参数意思自行定义 ，因为定义是session，所以可修改timeToIdleSeconds为7200也就是2个小时，而timeToLiveSeconds为0
+		timeToIdleSeconds： 对象空闲时间，指对象在多长时间没有被访问就会失效。只对eternal为false的有效。默认值0，表示一直可以访问。 
+		timeToLiveSeconds： 对象存活时间，指对象从创建到失效所需要的时间。只对eternal为false的有效。默认值0，表示一直可以访问。 
+		diskExpiryThreadIntervalSeconds： 对象检测线程运行时间间隔。标识对象状态的线程多长时间运行一次。
+		 eternal：设定缓存的elements是否永远不过期。如果为true，则缓存的数据始终有效，如果为false那么还要根据timeToIdleSeconds，timeToLiveSeconds判断。 -->
+	<cache name="session" maxElementsInMemory="1000000"
+		maxElementsOnDisk="1000000" eternal="false" overflowToDisk="false"
+		timeToIdleSeconds="10" timeToLiveSeconds="0" diskPersistent="false"
+		diskExpiryThreadIntervalSeconds="120">
+	</cache>
+	<!-- 有效时间：2小时 -->
+	<cache name="key" maxElementsInMemory="1000000"
+		maxElementsOnDisk="1000000" eternal="false" overflowToDisk="false"
+		timeToIdleSeconds="7200" timeToLiveSeconds="7200" diskPersistent="false"
+		diskExpiryThreadIntervalSeconds="120">
+	</cache>
+	<!-- 永久有效的缓存  -->
+	<cache name="forevercache" maxElementsInMemory="1000000"
+		maxElementsOnDisk="1000000" eternal="false" overflowToDisk="false"
+		timeToIdleSeconds="0" timeToLiveSeconds="0" diskPersistent="false"
+		diskExpiryThreadIntervalSeconds="120">
+	</cache>
+</ehcache>

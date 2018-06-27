@@ -1,0 +1,30 @@
+<serviceGroup>
+	<!-- PDF打印-->
+	<!--<service name="PdfPrintService" scope="application">
+		<description>PDF打印</description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+				class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+	   <schema schemaNamespace="http://www.ylzinfo.com/xsd" />
+		<parameter name="ServiceClass">
+			com.ylzinfo.psBusiness.pdf.service.PdfPrintService
+		</parameter>
+	</service>
+	--><!-- 实名认证-->
+	<service name="SMSService" scope="application">
+		<description>实名认证</description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+				class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+	   <schema schemaNamespace="http://www.ylzinfo.com/xsd" />
+		<parameter name="ServiceClass">
+			com.ylzinfo.psBusiness.checkAuthor.service.SMSService
+		</parameter>
+	</service>
+</serviceGroup>

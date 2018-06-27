@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.ylzinfo.fj.key.entity.Ss05" table="SS05">
+    
+    <id name="ysz066" type="java.lang.Long" column="YSZ066">
+      <generator class="assigned"/>
+    </id>
+
+    <property name="aac002" type="java.lang.String" column="AAC002"/>
+    <property name="aae140" type="java.lang.String" column="AAE140"/>
+    <property name="yae512" type="java.lang.String" column="YAE512"/>
+    <property name="aac001" type="java.lang.String" column="AAC001"/>
+  </class>
+</hibernate-mapping>

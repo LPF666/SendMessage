@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- 公共服务非智能服务配置选项 -->
+<ylzinfo-config>
+	<!-- 各业务系统ESB服务调用地址和用户名密码-->
+	<esbs>
+			<esb name="sxmsy"
+			url="http://192.168.211.105:7013/YlzinfoESB/esbproxy"
+			username="sxmsy"
+			passwd="22A11EA61C11A0AFE2B3F4032CDCBB41212AF7DE09C57692"
+			desc="山西民生云" />
+		<!--
+		<esb name="sxmsy" url="http://192.168.211.56:7011/esb/esbproxy"
+			username="esb" passwd="8E000FDB54B7FD93" desc="山西民生云" />
+		-->
+	</esbs>
+	<!-- 各数据源-->
+	<datasource>
+		<db name="sz"
+			url="jdbc:oracle:thin:@(DESCRIPTION =
+			(ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.206.15)(PORT = 1521))
+			(ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.206.16)(PORT = 1521))
+			(ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.206.17)(PORT = 1521))
+			(LOAD_BALANCE = yes)
+			(CONNECT_DATA =
+			  (SERVER = DEDICATED)
+			  (SERVICE_NAME = sxszwx)
+			  (FAILOVER_MODE =
+				(TYPE = SELECT)
+				(METHOD = BASIC)
+				(RETRIES = 180)
+				(DELAY = 5)
+			  )
+			)
+			)"
+			username="wxsbjk" passwd="wxsbjk#2014" desc="数据库" />
+	</datasource>
+	<pdf>
+		<tmppath value="/home/weblogic/webapp/pdftmp/" />
+		<!--<tmppath value="D:\\" />-->
+	</pdf>
+	<params>
+		<param name="encodekey" value="sxps#$outparm" desc="出参加解密的密钥" />
+		<param name="decodekey" value="sxps#$inparm" desc="入参加解密的密钥" />
+	</params>
+</ylzinfo-config>

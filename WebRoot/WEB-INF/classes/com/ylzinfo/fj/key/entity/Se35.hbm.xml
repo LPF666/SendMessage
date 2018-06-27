@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.ylzinfo.fj.key.entity.Se35" table="SE35">
+    
+    <id name="ysz053" type="java.lang.Long" column="YSZ053">
+      <generator class="assigned"/>
+    </id>
+
+    <property name="yse073" type="java.lang.String" column="YSE073"/>
+    <property name="yse103" type="java.lang.String" column="YSE103"/>
+    <property name="yse119" type="java.lang.String" column="YSE119"/>
+    <property name="yse120" type="java.lang.String" column="YSE120"/>
+    <property name="aae013" type="java.lang.String" column="AAE013"/>
+    <property name="aae036" type="java.sql.Date" column="AAE036"/>
+    <property name="ysf016" type="java.lang.String" column="YSF016"/>
+    <property name="yse133" type="java.lang.String" column="YSE133"/>
+    <property name="yse153" type="java.lang.String" column="YSE153"/>
+    <property name="ysz064" type="java.lang.Long" column="YSZ064"/>
+    <property name="ysz060" type="java.lang.Long" column="YSZ060"/>
+    <property name="yse163" type="java.lang.String" column="YSE163"/>
+    <property name="yse164" type="java.lang.String" column="YSE164"/>
+  </class>
+</hibernate-mapping>

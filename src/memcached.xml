@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+cachetype设定采取哪种缓存
+对应CacheType中的配置，取其名称的小写
+ehcache
+memcached
+ -->
+<memcacheds cachetype="memcached">
+	<!-- 建议更改的参数有servers、weights、initConn、maxConn、hashingAlg、sessionTimeOut其他的建议不要去动 -->
+	<!-- name:缓存名字，要全局唯一 ，必须要有一个name为default的memcached节点 -->
+	<!-- servers:服务器列表，如果有多个，以逗号分隔 -->
+	<!-- weights:权重，如果每个都一样的话，可以不用设置， 如果某台服务器性能比较好，可以设置权重高点，如果有设置，则要与上面的servers个数一致， 
+		以逗号分隔 -->
+	<!-- initConn:初始连接数 -->
+	<!-- minConn:最小连接数 -->
+	<!-- maxConn:最大连接数 -->
+	<!-- maxIdle:最大处理时间1000 * 60 * 60 * 6为6个小时,这个有调整请算完后填写计算后的数字 设置可用连接池的最长等待时间 -->
+	<!-- maintSleep:设置主线程的睡眠时间60秒 设置连接池维护线程的睡眠时间 设置为0，维护线程不启动 维护线程主要通过log输出socket的运行状况，监测连接数目及空闲等待时间等参数以控制连接创建和关闭。 -->
+	<!-- nagle:是否启用nagle算法，这个就为false就好 -->
+	<!-- socketTO:读取3秒超时 -->
+	<!-- socketConnectTO:不设置连接超时0为不超时 设置socket的连接等待超时值 -->
+	<!-- hashingAlg:设置hash算法 alg=0 使用String.hashCode()获得hash code,该方法依赖JDK，可能和其他客户端不兼容，建议不使用 
+		alg=1 使用original 兼容hash算法，兼容其他客户端 alg=2 使用CRC32兼容hash算法，兼容其他客户端，性能优于original算法 
+		alg=3 使用MD5 hash算法 采用前三种hash算法的时候，查找cache服务器使用余数方法。采用最后一种hash算法查找cache服务时使用consistent方法。 
+		这边如果只有单台的话，设置为2比较好，如果有多台的话，使用一致性hash比较合适 -->
+	<!-- sessionTimeOut:session过期时间多久，单位秒，比如2个小时为60*60*2=7200 这个一定要配置，否则调用 -->
+	<memcached name="default" servers="10.96.4.41:11211"
+		weights="3" initConn="10" minConn="10" maxConn="1000" maxIdle="21600000"
+		maintSleep="60" nagle="false" socketTO="3000" socketConnectTO="0"
+		hashingAlg="2" sessionTimeOut="10" />
+	<!-- 有效时间：2小时 -->
+	<memcached name="key" servers="10.96.4.41:11211"
+		weights="3" initConn="10" minConn="10" maxConn="1000" maxIdle="21600000"
+		maintSleep="60" nagle="false" socketTO="3000" socketConnectTO="0"
+		hashingAlg="2" sessionTimeOut="7200" />
+	<!-- 永久有效缓存 -->
+	<memcached name="forevercache" servers="10.96.4.41:11211"
+		weights="3" initConn="10" minConn="10" maxConn="1000" maxIdle="21600000"
+		maintSleep="60" nagle="false" socketTO="3000" socketConnectTO="0"
+		hashingAlg="2" />
+</memcacheds>
